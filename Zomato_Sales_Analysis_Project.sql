@@ -63,22 +63,22 @@ INSERT INTO product(product_id,product_name,price)
 
 select a.UserID, sum(b.price) as total_amt_spent
 from sales a inner join Product b on a.product_id=b.product_id group by a.UserID
- order by total_amt_spent desc
+order by total_amt_spent desc
 
 
  --2) how many distinct days has each customer placed order? 
 
 select UserID, count(distinct(created_date)) as No_days_visited
 from sales  group by UserID
- order by No_days_visited desc
+order by No_days_visited desc
 
 
  --3) Which item is most popular in each of the customer?
- select * from Sales
 
  select UserID,Product_ID,count(product_id) as tcountt
  from Sales group by UserID,Product_ID 
 
+ 
   --4) What is the most purchased item on the menu and how many times was it purchase by all customer?
 
   select userid,count(userid) tcount
@@ -92,9 +92,9 @@ from sales  group by UserID
 select * from
 (select *,
 rank() over(partition by userid order by created_date asc) as rnk from sales) a
-
 where rnk=1
  
+
 
 
 
