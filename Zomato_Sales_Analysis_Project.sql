@@ -55,6 +55,7 @@ INSERT INTO product(product_id,product_name,price)
 
 
 
+
 --Applying  Queries to the given tables to get the important business insights.
 
 
